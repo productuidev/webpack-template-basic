@@ -2,7 +2,7 @@
   <h2 @click="$emit('click')">
     {{ msg }}
   </h2>
-  <img src="~assets/image.png" alt="productuidev" />
+  <img src="~assets/image.png" alt="productuidev">
 </template>
 
 <script>

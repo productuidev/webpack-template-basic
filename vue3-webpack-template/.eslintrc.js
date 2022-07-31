@@ -21,6 +21,11 @@ module.exports = {
   // extends에서 기본적인 규칙을 설정한 경우 rules를 별도로 설정하지 않아도 됨
   // 예외 규칙이 있다면 추가
   rules: {
-
+    "vue/no-multiple-template-root": "off",
+    "vue/valid-template-root": "off",
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }]
   }
 }
