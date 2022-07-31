@@ -1,26 +1,18 @@
 <template>
-  <!-- Remove & use example component! -->
-  <!-- <HelloWorld :msg="message" @click="handler" /> -->
-  <HelloWorld msg="@productuidev" />
+  <!-- count라는 data -->
+  <h1>{{ count }}</h1>
 </template>
 
 <script>
-import HelloWorld from '~/components/HelloWorld'
-
 export default {
-  components: {
-    HelloWorld
-  },
   data() {
     return {
-      message: 'Hello Vue!'
-    }
-  },
-  methods: {
-    handler() {
-      console.log(this.message)
-      this.message += '!'
+      count: 0 // 초기값 지정
     }
   }
 }
 </script>
+
+<style>
+
+</style>
