@@ -1,9 +1,7 @@
 <template>
   <!-- Remove & use example component! -->
-  <HelloWorld
-    :msg="message"
-    @click="handler" />
-  <HelloWorld msg="Good" />
+  <!-- <HelloWorld :msg="message" @click="handler" /> -->
+  <HelloWorld msg="@productuidev" />
 </template>
 
 <script>
