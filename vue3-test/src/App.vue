@@ -6,6 +6,20 @@
   <h1 @click="increase">
     {{ count }}
   </h1>
+  <!-- v-if 조건문 -->
+  <div v-if="count > 4">
+    4보다 큽니다!
+  </div>
+  <ul>
+    <!-- v-for 반복문 -->
+    <!-- fruit in fruits : fruits 배열 데이터 반복, fruit라는 변수에 담기 -->
+    <!-- 해당 data가 고유한지 증명 :key="fruit" -->
+    <li
+      v-for="fruit in fruits"
+      :key="fruit">
+      {{ fruit }}
+    </li>
+  </ul>
 </template>
 
 
@@ -13,7 +27,8 @@
 export default {
   data() { // data 정의
     return {
-      count: 0 // 초기값 지정
+      count: 0, // 초기값 지정,
+      fruits: ['Apple', 'Banana', 'Cherry'], // 배열 추가
     }
   },
   methods: { // methods
@@ -24,6 +39,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   h1 { font-size:50px; color:royalblue; }
+  ul {
+    li { font-size:40px; }
+  }
 </style>
