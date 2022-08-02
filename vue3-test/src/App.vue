@@ -1,47 +1,28 @@
 <template>
-  <!-- 반응성(Reactivity) 개념 :
-      count라는 데이터가 변경되면 브라우저가 갱신된다 (모던 프론트엔드 프레임워크의 핵심)
-  -->
-  <!-- h1을 클릭하면(onClick) 함수 실행 -->
-  <h1 @click="increase">
-    {{ count }}
-  </h1>
-  <!-- v-if 조건문 -->
-  <div v-if="count > 4">
-    4보다 큽니다!
-  </div>
-  <ul>
-    <!-- v-for 반복문 -->
-    <!-- fruit in fruits : fruits 배열 데이터 반복, fruit라는 변수에 담기 -->
-    <!-- 해당 data가 고유한지 증명 :key="fruit" -->
-    <li
-      v-for="fruit in fruits"
-      :key="fruit">
-      {{ fruit }}
-    </li>
-  </ul>
+  <h1>{{count}}</h1>
 </template>
-
 
 <script>
 export default {
-  data() { // data 정의
-    return {
-      count: 0, // 초기값 지정,
-      fruits: ['Apple', 'Banana', 'Cherry'], // 배열 추가
+  data() {
+    return{
+      count: 2
     }
   },
-  methods: { // methods
-    increase() { // function
-      this.count += 1 // this = script 전체, count에 접근하여 함수가 실행되면 1씩 증가
-    }
+  beforeCreate() {
+    console.log('before create!', this.count) // 생성 직전이기 때문에 데이터가 없어서 undefined가 출력
+  },
+  created() {
+    console.log('create!', this.count) // 생성 직후이므로 2가 출력
+    console.log(document.querySelector('h1')) // 아직 연결되지 전 상태이므로(html 구조 검색x) null 출력
+  },
+  beforeMount() {
+    console.log('before mount!')
+    console.log(document.querySelector('h1')) // 아직 연결되지 전 상태이므로(html 구조 검색x) null 출력
+  },
+  mounted() {
+    console.log('mounted!')
+    console.log(document.querySelector('h1')) // html 구조와 연결되서 조회되므로 <h1>2</h1> 출력
   }
 }
 </script>
-
-<style lang="scss">
-  h1 { font-size:50px; color:royalblue; }
-  ul {
-    li { font-size:40px; }
-  }
-</style>
